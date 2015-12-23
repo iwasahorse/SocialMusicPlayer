@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.homework.pavement.player">
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name="com.homework.pavement.player.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.homework.pavement.player.TestActivity">
+        </activity>
+        <activity android:name="com.homework.pavement.player.TestActivity2">
+        </activity>
+        <activity android:name="com.homework.pavement.player.ArtistInfoActivity">
+        </activity>
+        <activity
+            android:name="com.homework.pavement.player.PlayerActivity"
+            android:parentActivityName="com.homework.pavement.player.MainActivity">
+
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.homework.pavement.player.MainActivity" />
+        </activity>
+
+        <service
+            android:name="com.homework.pavement.player.MusicService"
+            android:enabled="true"
+            android:exported="false">
+            <!--<intent-filter>
+                <action android:name="com.homework.pavement.musicplayer.action.PLAY" />
+            </intent-filter>-->
+        </service>
+
+    </application>
+
+</manifest>

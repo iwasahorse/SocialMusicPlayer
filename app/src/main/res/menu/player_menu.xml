@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:title="@string/action_info"
+        android:id="@+id/action_info"
+        android:icon="@drawable/lastfm"
+        android:name="@string/action_info"
+        app:showAsAction="always"/>
+    <item
+        android:title="@string/action_stop"
+        android:id="@+id/action_stop"
+        android:icon="@drawable/ic_stop_black_24dp"
+        android:name="@string/action_stop"
+        app:showAsAction="always"/>
+
+</menu>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"  tools:context="com.homework.pavement.player.TestActivity">
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="24dp" />
+    <ImageView
+        android:id="@+id/artist_image"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_gravity="center">
+    </ImageView>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="12dp" />
+    <TextView
+        android:id="@+id/artist_text"
+        android:layout_width="240dp"
+        android:layout_height="24dp"
+        android:layout_gravity="center"
+        android:gravity="center"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="24dp" />
+    <TextView
+        android:id="@+id/artist_similar_text"
+        android:layout_width="240dp"
+        android:layout_height="24dp"
+        android:layout_gravity="center"
+        android:text="Similar Artists:"
+        android:gravity="center"/>
+    <ListView
+        android:id="@+id/list_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+</LinearLayout>
