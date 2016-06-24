@@ -2,8 +2,8 @@ package com.homework.pavement.player;
 
 import android.content.Intent;
 import android.database.Cursor;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -20,6 +20,9 @@ public class MainActivity extends AppCompatActivity {
     private static final String POSITION = "POSITION";
     private Intent mIntentMusicService;
     private Intent mIntentPlayerActivity;
+    private ListView listView;
+    private ArrayList<String> arrayList;
+    private ArrayAdapter<String> arrayAdapter;
     private Cursor mCursor;
     private int prevPosition = -1;
 
@@ -47,15 +50,23 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ListView listView = (ListView) findViewById(R.id.list);
-        ArrayList<String> arrayList = new ArrayList<>();
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, arrayList);
+        listView = (ListView) findViewById(R.id.list_music);
+        arrayList = new ArrayList<>();
+        arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, arrayList);
 
         mIntentPlayerActivity = new Intent(MainActivity.this, PlayerActivity.class);
         mIntentMusicService = new Intent(MainActivity.this, MusicService.class);
 
-        listView.setAdapter(arrayAdapter);
-        listView.setOnItemClickListener(onClickListItem);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if(listView != null) {
+            listView.setAdapter(arrayAdapter);
+            listView.setOnItemClickListener(onClickListItem);
+        }
 
         mCursor = Utils.getTrackCursor(this);
         if (mCursor != null) {

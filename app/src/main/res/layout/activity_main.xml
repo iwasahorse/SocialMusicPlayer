@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <ListView
-        android:id="@+id/list"
+        android:id="@+id/list_music"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="6" />

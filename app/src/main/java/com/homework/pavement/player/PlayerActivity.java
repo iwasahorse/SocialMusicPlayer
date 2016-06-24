@@ -86,7 +86,6 @@ public class PlayerActivity extends AppCompatActivity {
                 finish();
                 return true;
 
-
             case R.id.action_info:
                 Log.i(TAG, "Info");
                 Intent intent = new Intent(PlayerActivity.this, ArtistInfoActivity.class);
@@ -142,13 +141,15 @@ public class PlayerActivity extends AppCompatActivity {
     //앨범 아트를 업데이트한다.
     public void albumArtUpdate() {
         ImageView imageView = (ImageView) findViewById(R.id.image_background);
-        imageView.setImageDrawable(new BitmapDrawable(getResources(), mMusicService.getAlbumArt()));
+        if(imageView != null)
+            imageView.setImageDrawable(new BitmapDrawable(getResources(), mMusicService.getAlbumArt()));
     }
 
     //현재 재생중인 곡을 텍스뷰에 표시
     public void textUpdate() {
         TextView textArtistTitle = (TextView) findViewById(R.id.text_artist_title);
-        textArtistTitle.setText(mMusicService.getArtistTitle());
+        if(textArtistTitle != null)
+            textArtistTitle.setText(mMusicService.getArtistTitle());
     }
 
     //재생 / 일시정지 버튼을 눌렀을 때 UI 상의 변화

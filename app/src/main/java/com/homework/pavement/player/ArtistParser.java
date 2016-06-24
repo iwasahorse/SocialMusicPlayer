@@ -2,10 +2,8 @@ package com.homework.pavement.player;
 
 import android.util.Log;
 import android.util.Xml;
-
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -44,14 +42,25 @@ public class ArtistParser {private static final String ns = null;
     }
 
     public static class Artist {
-        public final String name;
-        public final String url;
-        public final String image;
+        private final String name;
+        private final String url;
+        private final String image;
 
         private Artist(String name, String image, String url) {
             this.name = name;
             this.url = url;
             this.image = image;
+        }
+        public String getName() {
+            return name;
+        }
+
+        public String getUrl() {
+            return url;
+        }
+
+        public String getImage() {
+            return image;
         }
     }
 
@@ -62,7 +71,7 @@ public class ArtistParser {private static final String ns = null;
         String name = null;
         String image = null;
         String url = null;
-        String content = null;
+        String content;
         while (parser.next() != XmlPullParser.END_TAG) {
             if (parser.getEventType() != XmlPullParser.START_TAG) {
                 continue;
