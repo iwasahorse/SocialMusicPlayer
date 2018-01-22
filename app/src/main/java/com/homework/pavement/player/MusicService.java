@@ -66,22 +66,24 @@ public class MusicService extends Service implements MediaPlayer.OnCompletionLis
         onStop();
 
         mMediaPlayer = MediaPlayer.create(this, Uri.parse("file://" + fileName));// initialize it here
-        mMediaPlayer.start();
 
-        if (mBuilder == null) {
-            notifyNowPlaying(mArtistTitle);
-        } else {
-            mBuilder.setContentText(mArtistTitle);
-            startForeground(ID_NOTIFICATION, mBuilder.build());
+        if(mMediaPlayer != null) {
+            mMediaPlayer.start();
+
+            if (mBuilder == null) {
+                notifyNowPlaying(mArtistTitle);
+            } else {
+                mBuilder.setContentText(mArtistTitle);
+                startForeground(ID_NOTIFICATION, mBuilder.build());
+            }
+            paused = false;
         }
-        paused = false;
     }
 
     //정지 요청에 대한 동작
     public void onStop() {
         if (mMediaPlayer != null) {
             mMediaPlayer.stop();
-            mMediaPlayer.reset();
             mMediaPlayer.release();
             mMediaPlayer = null;
         }
